@@ -1,23 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-CI测试脚本 - 专门用于GitHub Actions的简化测试
+CI测试脚本 - 简化版本，避免编码问题
 """
 
 import sys
 import os
 import traceback
-import locale
-
-# 设置编码，避免Windows CI环境的编码问题
-if sys.platform.startswith('win'):
-    # Windows环境设置UTF-8编码
-    try:
-        import io
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
-    except:
-        pass
 
 # 添加项目根目录到Python路径
 project_root = os.path.dirname(os.path.abspath(__file__))
@@ -25,34 +14,34 @@ sys.path.insert(0, project_root)
 
 def test_imports():
     """测试核心模块导入"""
-    print("🧪 测试模块导入...")
+    print("Testing module imports...")
     
     try:
         # 测试模型导入
         from models.command import Command, CommandType, SafetyLevel
-        print("  ✅ models.command 导入成功")
+        print("  [OK] models.command imported successfully")
         
         # 测试安全检查器
         from core.safety_checker import SafetyChecker
-        print("  ✅ core.safety_checker 导入成功")
+        print("  [OK] core.safety_checker imported successfully")
         
         # 测试模式匹配
         from utils.patterns import COMMAND_PATTERNS
-        print(f"  ✅ utils.patterns 导入成功 ({len(COMMAND_PATTERNS)} 个模式)")
+        print(f"  [OK] utils.patterns imported successfully ({len(COMMAND_PATTERNS)} patterns)")
         
         # 测试配置系统
         from config.settings import get_settings
-        print("  ✅ config.settings 导入成功")
+        print("  [OK] config.settings imported successfully")
         
         return True
     except Exception as e:
-        print(f"  ❌ 导入失败: {e}")
+        print(f"  [FAIL] Import failed: {e}")
         traceback.print_exc()
         return False
 
 def test_safety_checker():
     """测试安全检查器"""
-    print("🛡️ 测试安全检查器...")
+    print("Testing safety checker...")
     
     try:
         from models.command import Command, CommandType, SafetyLevel
@@ -71,7 +60,7 @@ def test_safety_checker():
         )
         
         checked = safety_checker.check_command_safety(safe_cmd)
-        print(f"  ✅ 安全命令检测: {checked.safety_level}")
+        print(f"  [OK] Safe command detection: {checked.safety_level}")
         
         # 测试危险命令
         dangerous_cmd = Command(
@@ -84,23 +73,23 @@ def test_safety_checker():
         )
         
         checked = safety_checker.check_command_safety(dangerous_cmd)
-        print(f"  ✅ 危险命令检测: {checked.safety_level}")
+        print(f"  [OK] Dangerous command detection: {checked.safety_level}")
         
         return True
     except Exception as e:
-        print(f"  ❌ 安全检查器测试失败: {e}")
+        print(f"  [FAIL] Safety checker test failed: {e}")
         traceback.print_exc()
         return False
 
 def test_patterns():
     """测试模式匹配"""
-    print("⚡ 测试模式匹配...")
+    print("Testing pattern matching...")
     
     try:
         from utils.patterns import COMMAND_PATTERNS
         
         if len(COMMAND_PATTERNS) > 0:
-            print(f"  ✅ 加载了 {len(COMMAND_PATTERNS)} 个命令模式")
+            print(f"  [OK] Loaded {len(COMMAND_PATTERNS)} command patterns")
             
             # 检查模式结构
             first_pattern = COMMAND_PATTERNS[0]
@@ -108,81 +97,85 @@ def test_patterns():
             
             for key in required_keys:
                 if key in first_pattern:
-                    print(f"  ✅ 模式结构包含 '{key}'")
+                    print(f"  [OK] Pattern structure contains '{key}'")
                 else:
-                    print(f"  ⚠️ 模式结构缺少 '{key}'")
+                    print(f"  [WARN] Pattern structure missing '{key}'")
             
             return True
         else:
-            print("  ❌ 没有加载到命令模式")
+            print("  [FAIL] No command patterns loaded")
             return False
             
     except Exception as e:
-        print(f"  ❌ 模式匹配测试失败: {e}")
+        print(f"  [FAIL] Pattern matching test failed: {e}")
         traceback.print_exc()
         return False
 
 def test_cli_import():
     """测试CLI导入"""
-    print("💻 测试CLI导入...")
+    print("Testing CLI import...")
     
     try:
         # 检查Python版本
         python_version = f"{sys.version_info.major}.{sys.version_info.minor}"
-        print(f"  📋 Python版本: {python_version}")
+        print(f"  [INFO] Python version: {python_version}")
+        print(f"  [INFO] Platform: {sys.platform}")
         
         from cli.main import app
-        print("  ✅ CLI应用导入成功")
+        print("  [OK] CLI application imported successfully")
         
         # 测试基本CLI功能
         import typer
-        print(f"  ✅ Typer版本: {typer.__version__}")
+        print(f"  [OK] Typer version: {typer.__version__}")
         
         return True
     except Exception as e:
-        print(f"  ❌ CLI导入失败: {e}")
-        print(f"  📍 错误类型: {type(e).__name__}")
+        print(f"  [FAIL] CLI import failed: {e}")
+        print(f"  [INFO] Error type: {type(e).__name__}")
         traceback.print_exc()
         return False
 
 def main():
     """运行所有测试"""
-    print("🚀 开始CI测试...\n")
+    print("Starting CI tests...")
+    print("=" * 50)
     
     tests = [
-        ("模块导入", test_imports),
-        ("安全检查器", test_safety_checker),
-        ("模式匹配", test_patterns),
-        ("CLI导入", test_cli_import),
+        ("Module imports", test_imports),
+        ("Safety checker", test_safety_checker),
+        ("Pattern matching", test_patterns),
+        ("CLI import", test_cli_import),
     ]
     
     results = []
     
     for test_name, test_func in tests:
-        print(f"\n{'='*50}")
+        print(f"\n{'-' * 30}")
+        print(f"Running: {test_name}")
+        print(f"{'-' * 30}")
         success = test_func()
         results.append((test_name, success))
-        print(f"{'='*50}")
     
     # 总结结果
-    print(f"\n🎯 测试结果总结:")
-    print(f"{'='*60}")
+    print(f"\n{'=' * 50}")
+    print("Test Results Summary:")
+    print(f"{'=' * 50}")
     
     passed = 0
     for test_name, success in results:
-        status = "✅ 通过" if success else "❌ 失败"
+        status = "[PASS]" if success else "[FAIL]"
         print(f"  {test_name:<20} {status}")
         if success:
             passed += 1
     
-    print(f"{'='*60}")
-    print(f"  总计: {passed}/{len(tests)} 个测试通过")
+    print(f"{'=' * 50}")
+    print(f"Total: {passed}/{len(tests)} tests passed")
     
     if passed == len(tests):
-        print("🎉 所有测试通过！")
+        print("All tests passed!")
         return 0
     else:
-        print("💥 部分测试失败！")
+        print("Some tests failed!")
         return 1
 
 if __name__ == "__main__":

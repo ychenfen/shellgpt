@@ -30,9 +30,10 @@ jobs:
     
     - name: Run CI tests
       run: |
-        python ci_test.py
+        python ci_test_simple.py
     
     - name: Test CLI commands
+      shell: bash
       run: |
         python run_shellgpt.py --help
         python run_shellgpt.py version
