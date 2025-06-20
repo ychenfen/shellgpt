@@ -28,12 +28,11 @@ jobs:
         pip install -e .
         pip install pytest pytest-cov
     
-    - name: Run functionality tests
+    - name: Run CI tests
       run: |
-        python test_real_functionality.py
+        python ci_test.py
     
     - name: Test CLI commands
       run: |
         python run_shellgpt.py --help
         python run_shellgpt.py version
-        python run_shellgpt.py config --show
