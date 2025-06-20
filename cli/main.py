@@ -1,5 +1,7 @@
 """Main CLI application for ShellGPT."""
 
+from __future__ import annotations
+
 import asyncio
 import sys
 import subprocess
