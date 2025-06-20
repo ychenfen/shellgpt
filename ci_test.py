@@ -115,11 +115,21 @@ def test_cli_import():
     print("💻 测试CLI导入...")
     
     try:
+        # 检查Python版本
+        python_version = f"{sys.version_info.major}.{sys.version_info.minor}"
+        print(f"  📋 Python版本: {python_version}")
+        
         from cli.main import app
         print("  ✅ CLI应用导入成功")
+        
+        # 测试基本CLI功能
+        import typer
+        print(f"  ✅ Typer版本: {typer.__version__}")
+        
         return True
     except Exception as e:
         print(f"  ❌ CLI导入失败: {e}")
+        print(f"  📍 错误类型: {type(e).__name__}")
         traceback.print_exc()
         return False
 

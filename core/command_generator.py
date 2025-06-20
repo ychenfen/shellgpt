@@ -1,6 +1,6 @@
 """Command generation engine that orchestrates all components."""
 
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -179,7 +179,7 @@ class CommandGenerator:
         else:
             return base_explanation
     
-    async def generate_multiple_alternatives(self, query: str, count: int = 3) -> list[Command]:
+    async def generate_multiple_alternatives(self, query: str, count: int = 3) -> List[Command]:
         """Generate multiple alternative commands for the same query."""
         
         alternatives = []
@@ -244,7 +244,7 @@ class CommandGenerator:
         except Exception as e:
             return f"Unable to explain command: {str(e)}"
     
-    async def suggest_improvements(self, command: str) -> list[str]:
+    async def suggest_improvements(self, command: str) -> List[str]:
         """Suggest improvements or alternatives for a command."""
         
         context = await self.context_manager.get_current_context()
