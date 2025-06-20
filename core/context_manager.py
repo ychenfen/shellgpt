@@ -9,7 +9,11 @@ from typing import Dict, List, Optional, Any
 import psutil
 import git
 
-from ..models.command import SystemContext
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from models.command import SystemContext
 
 
 class ContextManager:

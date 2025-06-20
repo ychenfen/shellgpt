@@ -10,14 +10,12 @@ __author__ = "ychenfen"
 __email__ = "2570601904@qq.com"
 __description__ = "AI-powered intelligent shell assistant that understands natural language"
 
-from .core.nlp_engine import NLPEngine
-from .core.command_generator import CommandGenerator
-from .core.context_manager import ContextManager
-from .core.safety_checker import SafetyChecker
+# Core components available for import
+# Actual imports happen dynamically to avoid circular dependencies
 
 __all__ = [
-    "NLPEngine",
-    "CommandGenerator", 
-    "ContextManager",
-    "SafetyChecker",
+    "__version__",
+    "__author__",
+    "__email__",
+    "__description__",
 ]

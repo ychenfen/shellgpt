@@ -4,7 +4,8 @@ import os
 from typing import Optional, Dict, Any
 from pathlib import Path
 import yaml
-from pydantic import BaseSettings, Field
+from pydantic import Field
+from pydantic_settings import BaseSettings
 from platformdirs import user_config_dir, user_data_dir
 
 

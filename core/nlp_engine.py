@@ -8,9 +8,13 @@ from dataclasses import dataclass
 import openai
 from openai import OpenAI
 
-from ..models.command import Command, CommandType, SafetyLevel
-from ..utils.patterns import COMMAND_PATTERNS
-from ..config.settings import get_settings
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from models.command import Command, CommandType, SafetyLevel
+from utils.patterns import COMMAND_PATTERNS
+from config.settings import get_settings
 
 
 @dataclass

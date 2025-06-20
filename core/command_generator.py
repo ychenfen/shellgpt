@@ -1,11 +1,15 @@
 """Command generation engine that orchestrates all components."""
 
 from typing import Dict, Any, Optional
-from ..models.command import Command, CommandType, SafetyLevel
-from ..utils.patterns import get_pattern_by_action, get_template_for_os
-from .nlp_engine import NLPEngine
-from .context_manager import ContextManager
-from .safety_checker import SafetyChecker
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from models.command import Command, CommandType, SafetyLevel
+from utils.patterns import get_pattern_by_action, get_template_for_os
+from core.nlp_engine import NLPEngine
+from core.context_manager import ContextManager
+from core.safety_checker import SafetyChecker
 
 
 class CommandGenerator:

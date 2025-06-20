@@ -12,9 +12,13 @@ from rich.syntax import Syntax
 from rich.table import Table
 from rich import print as rprint
 
-from ..core.command_generator import CommandGenerator
-from ..config.settings import get_config_manager, get_settings
-from ..models.command import SafetyLevel
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from core.command_generator import CommandGenerator
+from config.settings import get_config_manager, get_settings
+from models.command import SafetyLevel
 
 app = typer.Typer(
     name="shellgpt",
@@ -289,7 +293,8 @@ def config_command(
 @app.command("version")
 def version_command():
     """Show ShellGPT version information."""
-    from .. import __version__, __description__
+    __version__ = "1.0.0"
+    __description__ = "AI-powered intelligent shell assistant that understands natural language"
     
     version_panel = Panel(
         f"🤖 [bold cyan]ShellGPT[/bold cyan] v{__version__}\n\n{__description__}",
