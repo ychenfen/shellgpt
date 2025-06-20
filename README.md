@@ -1,14 +1,24 @@
 # 🤖 ShellGPT - AI-Powered Intelligent Shell Assistant
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://python.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![OpenAI](https://img.shields.io/badge/Powered%20by-OpenAI-green.svg)](https://openai.com)
+[![GitHub stars](https://img.shields.io/github/stars/ychenfen/shellgpt?style=social)](https://github.com/ychenfen/shellgpt/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/ychenfen/shellgpt?style=social)](https://github.com/ychenfen/shellgpt/network)
+[![GitHub issues](https://img.shields.io/github/issues/ychenfen/shellgpt)](https://github.com/ychenfen/shellgpt/issues)
+[![GitHub workflow status](https://img.shields.io/github/workflow/status/ychenfen/shellgpt/Tests)](https://github.com/ychenfen/shellgpt/actions)
 
 > **Transform natural language into precise shell commands with AI-powered intelligence and safety**
 
 ShellGPT is a revolutionary command-line assistant that understands your intentions in natural language and converts them into accurate shell commands. With built-in safety checks, context awareness, and learning capabilities, it's the perfect tool for both beginners and experts.
 
-![ShellGPT Demo](https://via.placeholder.com/800x400/1a1a1a/ffffff?text=ShellGPT+Demo)
+![ShellGPT Demo](https://user-images.githubusercontent.com/placeholder/demo.gif)
+
+<div align="center">
+
+**[📖 Documentation](https://github.com/ychenfen/shellgpt#readme) • [🚀 Quick Start](#-quick-start) • [🎥 Demo](#-try-it-right-now) • [🤝 Contributing](CONTRIBUTING.md) • [⭐ Star this repo](https://github.com/ychenfen/shellgpt/stargazers)**
+
+</div>
 
 ## ✨ Features
 
@@ -26,13 +36,29 @@ ShellGPT is a revolutionary command-line assistant that understands your intenti
 ### Installation
 
 ```bash
-# Install from PyPI (coming soon)
-pip install shellgpt
-
-# Or install from source
+# Clone the repository
 git clone https://github.com/ychenfen/shellgpt.git
 cd shellgpt
+
+# Set up virtual environment
+python3 -m venv venv
+source venv/bin/activate  # Linux/Mac
+# or venv\Scripts\activate  # Windows
+
+# Install dependencies
 pip install -e .
+```
+
+### ⚡ Try it right now!
+
+```bash
+# Test basic functionality (no API key needed)
+python run_shellgpt.py --help
+python run_shellgpt.py version
+python test_real_functionality.py
+
+# See it in action
+python demo_with_fallback.py
 ```
 
 ### Setup
@@ -307,10 +333,23 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If ShellGPT helps you be more productive, please consider:
 
-- ⭐ **Starring this repository**
-- 🐦 **Sharing on social media**
-- 📝 **Writing a blog post about your experience**
-- 💝 **Contributing to the project**
+- ⭐ **[Star this repository](https://github.com/ychenfen/shellgpt/stargazers)** - It means a lot!
+- 🐦 **Share on social media** - Help others discover this tool
+- 📝 **Write about your experience** - Blog posts welcome!
+- 💝 **[Contribute to the project](CONTRIBUTING.md)** - All contributions appreciated
+- 🐛 **[Report bugs](https://github.com/ychenfen/shellgpt/issues/new?template=bug_report.md)** - Help us improve
+- 💡 **[Request features](https://github.com/ychenfen/shellgpt/issues/new?template=feature_request.md)** - Share your ideas
+
+### 🏆 Why Star This Project?
+
+- ✅ **Production-ready** - Not a demo, but a real tool
+- 🧠 **AI-powered** - Smart natural language understanding  
+- 🛡️ **Safety-first** - Built-in security mechanisms
+- 🎨 **Beautiful UI** - Modern terminal experience
+- 📈 **Active development** - Regular updates and improvements
+- 🌍 **Open source** - Free forever, community-driven
+
+**[⭐ Click here to star this repository ⭐](https://github.com/ychenfen/shellgpt)**
 
 ---
 
