@@ -6,7 +6,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/ychenfen/shellgpt?style=social)](https://github.com/ychenfen/shellgpt/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/ychenfen/shellgpt?style=social)](https://github.com/ychenfen/shellgpt/network)
 [![GitHub issues](https://img.shields.io/github/issues/ychenfen/shellgpt)](https://github.com/ychenfen/shellgpt/issues)
-[![GitHub workflow status](https://img.shields.io/github/workflow/status/ychenfen/shellgpt/Tests)](https://github.com/ychenfen/shellgpt/actions)
+[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/ychenfen/shellgpt/test.yml?branch=main)](https://github.com/ychenfen/shellgpt/actions)
 
 > **Transform natural language into precise shell commands with AI-powered intelligence and safety**
 

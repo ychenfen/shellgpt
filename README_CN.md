@@ -5,6 +5,8 @@
 [![OpenAI](https://img.shields.io/badge/Powered%20by-OpenAI-green.svg)](https://openai.com)
 [![GitHub stars](https://img.shields.io/github/stars/ychenfen/shellgpt?style=social)](https://github.com/ychenfen/shellgpt/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/ychenfen/shellgpt?style=social)](https://github.com/ychenfen/shellgpt/network)
+[![GitHub issues](https://img.shields.io/github/issues/ychenfen/shellgpt)](https://github.com/ychenfen/shellgpt/issues)
+[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/ychenfen/shellgpt/test.yml?branch=main)](https://github.com/ychenfen/shellgpt/actions)
 
 > **用自然语言描述，AI智能生成精确的Shell命令，内置安全检查和上下文感知**
 
