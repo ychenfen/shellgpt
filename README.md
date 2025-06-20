@@ -18,6 +18,8 @@ ShellGPT is a revolutionary command-line assistant that understands your intenti
 
 **[📖 Documentation](https://github.com/ychenfen/shellgpt#readme) • [🚀 Quick Start](#-quick-start) • [🎥 Demo](#-try-it-right-now) • [🤝 Contributing](CONTRIBUTING.md) • [⭐ Star this repo](https://github.com/ychenfen/shellgpt/stargazers)**
 
+**[🇨🇳 中文文档](README_CN.md) • [🇺🇸 English](README.md)**
+
 </div>
 
 ## ✨ Features
